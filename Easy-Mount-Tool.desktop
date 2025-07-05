@@ -2,7 +2,7 @@
 [Desktop Entry]
 Name=Easy Mount Tool for SteamOS
 Comment=Setup permanent auto-mounting for any drive on SteamOS
-Exec=bash -c "curl -sL 'https://raw.githubusercontent.com/Delil-A11yX/SteamOS-Mount-Tool/refs/heads/main/setup-mounts.sh' > /tmp/setup-mounts.sh && chmod +x /tmp/setup-mounts.sh && pkexec /tmp/setup-mounts.sh; echo; read -p 'Press Enter to close this window...'"
+Exec=konsole -e "bash -c \\"curl -sL 'https://raw.githubusercontent.com/Delil-A11yX/SteamOS-Mount-Tool/main/setup-mounts.sh' > /tmp/setup-mounts.sh && chmod +x /tmp/setup-mounts.sh && sudo /tmp/setup-mounts.sh; echo; read -p 'Press Enter to close this window...'\\""
 Icon=drive-harddisk
-Terminal=true
+Terminal=false
 Type=Application
