@@ -6,7 +6,7 @@
 #                                                                             #
 # # # # # # # # # # #s# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# --- Hauptfunktion ---
+# --- Main Function ---
 main() {
     clear
     echo "====================================================="
@@ -17,7 +17,7 @@ main() {
     echo "a drive (partition) on your SteamOS device."
     echo
 
-    # --- Auswahl der Partition ---
+    # --- Partition Selection ---
     echo "Scanning for available drives..."
     echo "-----------------------------------------------------"
 
@@ -42,7 +42,7 @@ main() {
         fi
     done
 
-    # --- Informationen extrahieren ---
+    # --- Extract Info ---
     DEVICE_NAME=$(echo "$choice" | awk '{print $1}')
     DEVICE_PATH="/dev/$DEVICE_NAME"
 
@@ -61,7 +61,7 @@ main() {
     echo "Filesystem: $FSTYPE"
     echo "-----------------------------------------------------"
 
-    # --- Name des Mount-Punkts abfragen ---
+    # --- Get Mount Name ---
     read -p "Enter a short, simple name for this drive (e.g. 'games', 'sdcard', no spaces): " mount_name
     mount_name=$(echo "$mount_name" | tr '[:upper:]' '[:lower:]' | tr -d ' /')
 
@@ -71,18 +71,16 @@ main() {
         exit 1
     fi
 
-    # --- Konfiguration erstellen und anwenden ---
+    # --- Create and Apply Configuration ---
     MOUNT_PATH="/var/mnt/$mount_name"
     UNIT_FILENAME="var-mnt-$mount_name.mount"
     UNIT_FILE_PATH="/etc/systemd/system/$UNIT_FILENAME"
 
     echo "Creating mount folder at $MOUNT_PATH..."
-    # Da das Skript als root läuft, ist sudo hier nicht nötig
     mkdir -p "$MOUNT_PATH"
 
     echo "Creating systemd service file: $UNIT_FILENAME..."
 
-    # Als root schreiben wir die Datei direkt
     cat > "$UNIT_FILE_PATH" <<EOF
 [Unit]
 Description=Mount $mount_name Partition
@@ -114,5 +112,5 @@ EOF
     read -p "Press Enter to exit."
 }
 
-# --- Skript starten ---
+# --- Run the main function ---
 main
