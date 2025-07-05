@@ -77,8 +77,42 @@ main() {
     UNIT_FILE_PATH="/etc/systemd/system/$UNIT_FILENAME"
 
     echo "Creating mount folder at $MOUNT_PATH..."
+    # Da das Skript als root läuft, ist sudo hier nicht nötig
     mkdir -p "$MOUNT_PATH"
 
     echo "Creating systemd service file: $UNIT_FILENAME..."
 
+    # Als root schreiben wir die Datei direkt
     cat > "$UNIT_FILE_PATH" <<EOF
+[Unit]
+Description=Mount $mount_name Partition
+After=local-fs.target
+
+[Mount]
+What=/dev/disk/by-uuid/$UUID
+Where=$MOUNT_PATH
+Type=$FSTYPE
+Options=defaults,nofail
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+    echo "Activating the new service..."
+    systemctl daemon-reload
+    systemctl enable --now "$UNIT_FILENAME"
+
+    echo "-----------------------------------------------------"
+    if systemctl is-active --quiet "$UNIT_FILENAME"; then
+        echo "✅ Success! Your drive is now permanently mounted at $MOUNT_PATH"
+    else
+        echo "❌ Error! The service could not be started."
+        echo "   Check the status with: systemctl status $UNIT_FILENAME"
+    fi
+
+    echo
+    read -p "Press Enter to exit."
+}
+
+# --- Skript starten ---
+main
