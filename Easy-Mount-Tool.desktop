@@ -1,0 +1,8 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=Easy Mount Tool for SteamOS
+Comment=Setup permanent auto-mounting for any drive on SteamOS
+Exec=curl -sL 'https://raw.githubusercontent.com/Delil-A11yX/SteamOS-Mount-Tool/refs/heads/main/setup-mounts.sh' | pkexec bash -s --
+Icon=drive-harddisk
+Terminal=true
+Type=Application
