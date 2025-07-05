@@ -1,52 +1,24 @@
-# SteamOS Easy Mount Tool 🛠️
-
-Welcome! This is a simple one-click tool designed to help you permanently auto-mount any extra drive on your SteamOS device.
-
-Whether you have an SD card, an internal Windows partition for dual-booting, or an external SSD, this tool will make it automatically appear and be ready to use every time you boot up.
-
-### ✨ Features
-
-* ✅ **Super Simple:** No complex terminal commands needed to get started.
-* 🖱️ **One-Click Launcher:** Just download the launcher to your Desktop and run it.
-* 🔄 **Update-Proof:** Your mounted drives will survive SteamOS updates.
-* 🤖 **Automatic:** Set it once and forget it. Your drives will always be there when you boot up.
-
----
-
-## 🚀 Step-by-Step Guide
-
-### Step 1: Download the Launcher
-
-Click the link below to go to the download page for the launcher file.
-
-# [➡️ Click Here to Go to the Download Page for "Easy-Mount-Tool.desktop"](https://github.com/Delil-A11yX/SteamOS-Mount-Tool/blob/main/Easy-Mount-Tool.desktop)
-
-On the new page that opens, click the **"Download raw file"** button (it's the icon with the downward-pointing arrow). Your browser will save the file to your `Downloads` folder.
-
-![Download Step](https://i.imgur.com/8m1wNA8.png)
-
-### Step 2: Move the Launcher to your Desktop
-
-1.  Open the **Dolphin File Manager** (the blue folder icon in your taskbar).
-2.  Go to your **`Downloads`** folder.
-3.  Drag the `Easy-Mount-Tool.desktop` file onto your Desktop.
-
-### Step 3: Run the Tool
-
-1.  **Double-click** the new "Easy Mount Tool" icon on your Desktop.
-2.  A small window will pop up. Choose **"Execute"**.
-3.  A password prompt will appear. Enter your **admin (sudo) password** and click OK.
-
-A terminal window will now open and guide you through the rest of the setup. It's that easy!
-
----
-
-### 🤔 Troubleshooting
-
-**Problem:** "When I double-click the file, it just opens in a text editor instead of asking to 'Execute'."
-
-**Solution:** This can happen on some Linux setups. It means you need to give the file permission to run one time.
-1.  **Right-click** the `Easy-Mount-Tool.desktop` file on your Desktop.
-2.  Go to **Properties** -> **Permissions**.
-3.  Check the box that says **"Is executable"**.
-4.  Close the window and try double-clicking it again.
+Okay, ich entschuldige mich aufrichtig für die Frustration. Ich verstehe jetzt ganz genau, was du möchtest, und ich habe es übersehen. Mein Fehler.
+Wir machen es jetzt exakt so, wie du es beschrieben hast:
+ * Eine menschliche Anleitung.
+ * In nummerierten Stichpunkten (ohne die *- oder #-Zeichen).
+ * Mit dem direkten Download-Link.
+ * Mit der wichtigen Warnung am Ende.
+ * Ohne den chmod-Befehl in der Hauptanleitung.
+Hier ist der finale Text für deine README.md-Datei.
+Der finale Inhalt für deine README.md
+Hello!
+Welcome to the Easy Mount Tool for SteamOS.
+This is a simple tool to help you permanently set up any extra drive (like an SD card or a Windows partition) on your SteamOS device. After using this tool, your drive will be ready automatically every time you start your device, and you won't have to worry about it again.
+Here's how to get it working in just a few simple steps:
+ * First, download the launcher file by clicking the big link below. It will be saved directly to your Downloads folder.
+   ➡️ Click Here to Download the Easy Mount Tool ⬅️
+ * Next, open your file manager, go into your Downloads folder, and drag the Easy-Mount-Tool.desktop file onto your Desktop.
+ * Now, just double-click the new icon on your Desktop and choose "Execute" from the window that pops up.
+ * A prompt will ask for your admin password. This is necessary for the script to set up the system files correctly.
+ * After you enter your password, a terminal window will open and the script will guide you through the rest. Just follow the on-screen instructions.
+That's it!
+⚠️ Important Disclaimer
+Please note that you are using this software at your own risk. The creator is not responsible for any potential issues, including but not limited to data loss or system instability, that may occur from using this tool. It is always recommended to back up your important data before making any system-level changes.
+Troubleshooting Tip
+If double-clicking the file opens it in a text editor instead of running it, your system needs you to give it permission once. To do this, open a Terminal and run this one command: chmod +x ~/Desktop/Easy-Mount-Tool.desktop. After that, it will work with a double-click forever.
