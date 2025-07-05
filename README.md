@@ -25,8 +25,6 @@ First, you need to download the launcher file from this page.
 2.  On the next page, find and click the **"Download raw file"** button. It looks like a small downward-pointing arrow.
 3.  Your browser will save the file to your **`Downloads`** folder.
 
-![Download Step](https://i.imgur.com/8m1wNA8.png)
-
 ### Step 2: Move the Launcher to your Desktop
 
 To make it easy to run, let's move the file you just downloaded.
