@@ -4,24 +4,20 @@
 #                                                                             #
 #                      SteamOS Easy Mount Tool                                #
 #                                                                             #
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# # # # # # # # # # #s# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# --- Check for Admin Rights ---
-if [[ $EUID -ne 0 ]]; then
-   echo "Admin (sudo) permissions are required."
-   exec sudo -p "Please enter your password for sudo: " "$0" "$@"
-fi
-
+# --- Hauptfunktion ---
 main() {
     clear
     echo "====================================================="
-    echo "           SteamOS Easy Mount Tool"
+    echo "           Steam Deck Easy Mount Tool"
     echo "====================================================="
     echo
-    echo "This script helps you permanently auto-mount"
-    echo "any drive (partition) on your SteamOS device."
+    echo "This script will help you permanently auto-mount"
+    echo "a drive (partition) on your SteamOS device."
     echo
 
+    # --- Auswahl der Partition ---
     echo "Scanning for available drives..."
     echo "-----------------------------------------------------"
 
@@ -46,8 +42,10 @@ main() {
         fi
     done
 
+    # --- Informationen extrahieren ---
     DEVICE_NAME=$(echo "$choice" | awk '{print $1}')
     DEVICE_PATH="/dev/$DEVICE_NAME"
+
     UUID=$(lsblk -o UUID -n "$DEVICE_PATH")
     FSTYPE=$(lsblk -o FSTYPE -n "$DEVICE_PATH")
 
@@ -63,6 +61,7 @@ main() {
     echo "Filesystem: $FSTYPE"
     echo "-----------------------------------------------------"
 
+    # --- Name des Mount-Punkts abfragen ---
     read -p "Enter a short, simple name for this drive (e.g. 'games', 'sdcard', no spaces): " mount_name
     mount_name=$(echo "$mount_name" | tr '[:upper:]' '[:lower:]' | tr -d ' /')
 
@@ -72,6 +71,7 @@ main() {
         exit 1
     fi
 
+    # --- Konfiguration erstellen und anwenden ---
     MOUNT_PATH="/var/mnt/$mount_name"
     UNIT_FILENAME="var-mnt-$mount_name.mount"
     UNIT_FILE_PATH="/etc/systemd/system/$UNIT_FILENAME"
@@ -82,35 +82,3 @@ main() {
     echo "Creating systemd service file: $UNIT_FILENAME..."
 
     cat > "$UNIT_FILE_PATH" <<EOF
-
-[Unit]
-Description=Mount $mount_name Partition
-After=local-fs.target
-
-[Mount]
-What=/dev/disk/by-uuid/$UUID
-Where=$MOUNT_PATH
-Type=$FSTYPE
-Options=defaults,nofail
-
-[Install]
-WantedBy=multi-user.target
-EOF
-
-    echo "Activating the new service..."
-    systemctl daemon-reload
-    systemctl enable --now "$UNIT_FILENAME"
-
-    echo "-----------------------------------------------------"
-    if systemctl is-active --quiet "$UNIT_FILENAME"; then
-        echo "✅ Success! Your drive is now permanently mounted at $MOUNT_PATH"
-    else
-        echo "❌ Error! The service could not be started."
-        echo "   Check the status with: systemctl status $UNIT_FILENAME"
-    fi
-
-    echo
-    read -p "Press Enter to exit."
-}
-
-main
