@@ -15,40 +15,29 @@ Whether you have an SD card, an internal Windows partition for dual-booting, or 
 
 ## 🚀 Step-by-Step Guide
 
-Follow these steps carefully to get your drive set up.
-
 ### Step 1: Download the Launcher
 
-First, you need to download the launcher file from this page.
+Click the link below to go to the download page for the launcher file.
 
-1.  Look at the file list at the top of this GitHub page and click on the **`Easy-Mount-Tool.desktop`** file.
-2.  On the next page, find and click the **"Download raw file"** button. It looks like a small downward-pointing arrow.
-3.  Your browser will save the file to your **`Downloads`** folder.
+# [➡️ Click Here to Go to the Download Page for "Easy-Mount-Tool.desktop"](https://github.com/Delil-A11yX/SteamOS-Mount-Tool/blob/main/Easy-Mount-Tool.desktop)
+
+On the new page that opens, click the **"Download raw file"** button (it's the icon with the downward-pointing arrow). Your browser will save the file to your `Downloads` folder.
+
+![Download Step](https://i.imgur.com/8m1wNA8.png)
 
 ### Step 2: Move the Launcher to your Desktop
 
-To make it easy to run, let's move the file you just downloaded.
-
-1.  Open the **Dolphin File Manager** (it's the blue folder icon in your taskbar at the bottom of the screen).
-2.  Go to your **`Downloads`** folder on the left side.
-3.  Find the `Easy-Mount-Tool.desktop` file. Click it, hold the mouse button, drag it over to your Desktop, and let go.
+1.  Open the **Dolphin File Manager** (the blue folder icon in your taskbar).
+2.  Go to your **`Downloads`** folder.
+3.  Drag the `Easy-Mount-Tool.desktop` file onto your Desktop.
 
 ### Step 3: Run the Tool
 
-Now you can run the installer.
-
 1.  **Double-click** the new "Easy Mount Tool" icon on your Desktop.
-2.  A small window will pop up asking what to do with the file. Choose **"Execute"**.
-3.  A graphical password prompt will appear. This is a necessary security step. Enter your **admin (sudo) password** and click OK.
+2.  A small window will pop up. Choose **"Execute"**.
+3.  A password prompt will appear. Enter your **admin (sudo) password** and click OK.
 
-### Step 4: Follow the On-Screen Instructions
-
-That's it! A terminal window will now open and the script will guide you through the final steps.
-1.  It will show you a list of all available drives.
-2.  Choose the drive you want to mount by typing its number and pressing Enter.
-3.  Give your drive a simple name (like `games` or `sdcard`) and press Enter.
-
-The script will handle the rest automatically. After it's done, your drive will be permanently mounted and ready to use!
+A terminal window will now open and guide you through the rest of the setup. It's that easy!
 
 ---
 
