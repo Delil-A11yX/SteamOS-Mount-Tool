@@ -1,8 +1,9 @@
-#!/usr/bin/env xdg-open
 [Desktop Entry]
-Name=Easy Mount Tool for SteamOS
-Comment=Setup permanent auto-mounting for any drive on SteamOS
-Exec=konsole -e "bash -c \\"curl -sL 'https://raw.githubusercontent.com/Delil-A11yX/SteamOS-Mount-Tool/main/setup-mounts.sh' > /tmp/setup-mounts.sh && chmod +x /tmp/setup-mounts.sh && sudo /tmp/setup-mounts.sh; echo; read -p 'Press Enter to close this window...'\\""
-Icon=drive-harddisk
-Terminal=false
+Name=Boot to Windows Installer
+Comment=Install a shortcut to boot directly into Windows from SteamOS Gaming Mode.
+Exec=konsole --hold -e "bash -c 'curl -sL \"https://raw.githubusercontent.com/Delil-A11yX/SteamOS-Boot-to-Windows-Shortcut/main/install_boot_to_windows.sh\" | sudo bash -s -- \"$USER\"; echo \"Installation finished. Press Enter to close.\"; read -n 1'"
+Icon=utilities-terminal
+Terminal=true
 Type=Application
+Categories=System;Utility;
+StartupNotify=true
