@@ -8,7 +8,7 @@ This is a simple tool to help you permanently set up any extra drive (like an SD
 
 1.  First, download the launcher file by clicking the big link below. It will be saved directly to your `Downloads` folder.
 
-    [➡️ **Click Here to Download the Easy Mount Tool** ⬅️]()https://raw.githubusercontent.com/Delil-A11yX/SteamOS-Mount-Tool/refs/heads/main/setup-mounts.sh
+    [➡️ **Click Here to Download the Easy Mount Tool** ⬅️](blob:https://github.com/3d13d415-0e26-43a1-9835-9c0583529b16)
 
 2.  Next, open your file manager (the blue folder icon in the taskbar), go into your `Downloads` folder, and drag the **`Easy-Mount-Tool.desktop`** file onto your Desktop.
 
